@@ -38,20 +38,30 @@ class Item
   end
 
   def display
-    if BAD_CODES.include?(key.to_i)
+    if illegal_character?
       "#{key} - #{value}"
     else
       "#{key} &##{key};"
     end
   end
 
+  def uid
+    "code-#{key}"
+  end
+
   def to_xml
     item = REXML::Element.new('item', nil, {raw: :all})
     item.add_attribute('arg', key)
-    item.add_attribute('uid', "code-#{key}")
+    item.add_attribute('uid', uid)
     item.add_element('title').text = display
     item.add_element('subtitle').text = value
     item
+  end
+
+  private
+
+  def illegal_character?
+    BAD_CODES.include?(key.to_i)
   end
 end
 
