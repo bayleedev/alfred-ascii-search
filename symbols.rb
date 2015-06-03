@@ -1,0 +1,65 @@
+require 'json'
+require 'rexml/document'
+require 'rexml/element'
+
+data = JSON.parse(File.read('symbols.json'))
+
+class Search
+  attr_accessor :data, :search
+
+  def initialize(data)
+    @data = data.inject([]) do |memo, el|
+      memo.push Item.new(el[0], el[1])
+    end
+    @search = search
+  end
+
+  def find(keyword)
+    search = Regexp.new(keyword, 'i')
+    matches = @data.select do |item|
+      item.match(search)
+    end
+    Collection.new(matches)
+  end
+end
+
+class Item
+  attr_accessor :key, :value
+
+  def initialize(key, value)
+    @key = key
+    @value = value
+  end
+
+  def match(regex)
+    @key.match(regex) or @value.match(regex)
+  end
+
+  def to_xml
+    item = REXML::Element.new('item')
+    item.add_attribute('arg', key)
+    item.add_attribute('uid', "code-#{key}")
+    item.add_element('title').text = key
+    item.add_element('subtitle').text = value
+    item
+  end
+end
+
+class Collection
+  attr_accessor :nodes
+
+  def initialize(nodes)
+    @nodes = nodes
+  end
+
+  def to_xml
+    document = REXML::Document.new('<?xml version="1.0"?>')
+    items = document.add_element('items')
+    nodes.each do |node|
+      items << node.to_xml
+    end
+    document.to_s
+  end
+end
+
+puts Search.new(data).find(ARGV[0]).to_xml
