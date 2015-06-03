@@ -37,12 +37,16 @@ class Item
     @key.match(regex) or @value.match(regex)
   end
 
+  def display
+    if BAD_CODES.include?(key.to_i)
+      "#{key} - #{value}"
+    else
+      "#{key} &##{key};"
+    end
+  end
+
   def to_xml
     item = REXML::Element.new('item', nil, {raw: :all})
-    display = "#{key} &##{key};"
-    if BAD_CODES.include?(key.to_i)
-      display = "#{key} - #{value}"
-    end
     item.add_attribute('arg', key)
     item.add_attribute('uid', "code-#{key}")
     item.add_element('title').text = display
