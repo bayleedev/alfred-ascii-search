@@ -36,10 +36,10 @@ class Item
   end
 
   def to_xml
-    item = REXML::Element.new('item')
+    item = REXML::Element.new('item', nil, {raw: :all})
     item.add_attribute('arg', key)
     item.add_attribute('uid', "code-#{key}")
-    item.add_element('title').text = key
+    item.add_element('title').text = "#{key} - &#9;"
     item.add_element('subtitle').text = value
     item
   end

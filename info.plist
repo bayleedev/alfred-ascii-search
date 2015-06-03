@@ -34,19 +34,19 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>DC46BC11-0490-4CC0-96C4-ACC180265C00</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Copy HTML to clipboard</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>D75A02F9-C339-491B-B207-174C83AD6524</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>DC46BC11-0490-4CC0-96C4-ACC180265C00</string>
-				<key>modifiers</key>
-				<integer>262144</integer>
-				<key>modifiersubtext</key>
-				<string>Copy HTML to clipboard</string>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
@@ -68,6 +68,25 @@
 	<string>ASCII Search</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>echo -n "&amp;#{query};"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>DC46BC11-0490-4CC0-96C4-ACC180265C00</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -128,25 +147,6 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo "&amp;#{query};"</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>DC46BC11-0490-4CC0-96C4-ACC180265C00</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
 				<string>ruby -e "print [{query}].pack('U')"</string>
 				<key>type</key>
 				<integer>0</integer>
@@ -166,22 +166,22 @@
 		<key>CC101F15-D539-42C2-9FF6-735F5A7AB2F3</key>
 		<dict>
 			<key>ypos</key>
-			<real>260</real>
+			<real>190</real>
 		</dict>
 		<key>D75A02F9-C339-491B-B207-174C83AD6524</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>120</real>
 		</dict>
 		<key>DC46BC11-0490-4CC0-96C4-ACC180265C00</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>50</real>
 		</dict>
 		<key>F8884E84-89AB-4CD9-8D45-BCC22C216E6D</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>120</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
