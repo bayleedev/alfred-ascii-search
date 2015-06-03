@@ -26,6 +26,8 @@ end
 class Item
   attr_accessor :key, :value
 
+  BAD_CODES = (0..8).to_a + (11..31).to_a
+
   def initialize(key, value)
     @key = key
     @value = value
@@ -37,9 +39,13 @@ class Item
 
   def to_xml
     item = REXML::Element.new('item', nil, {raw: :all})
+    display = "#{key} &##{key};"
+    if BAD_CODES.include?(key.to_i)
+      display = "#{key} - #{value}"
+    end
     item.add_attribute('arg', key)
     item.add_attribute('uid', "code-#{key}")
-    item.add_element('title').text = "#{key} - &#9;"
+    item.add_element('title').text = display
     item.add_element('subtitle').text = value
     item
   end

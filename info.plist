@@ -38,23 +38,23 @@
 				<key>modifiers</key>
 				<integer>131072</integer>
 				<key>modifiersubtext</key>
-				<string>Copy HTML to clipboard</string>
+				<string>Copy character HTML to clipboard.</string>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>D75A02F9-C339-491B-B207-174C83AD6524</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>262144</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Copy character code to clipboard.</string>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>CC101F15-D539-42C2-9FF6-735F5A7AB2F3</string>
 				<key>modifiers</key>
-				<integer>262144</integer>
+				<integer>0</integer>
 				<key>modifiersubtext</key>
-				<string>Copy character to clipboard</string>
+				<string></string>
 			</dict>
 		</array>
 	</dict>
