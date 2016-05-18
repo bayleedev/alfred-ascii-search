@@ -1,5 +1,7 @@
 ## Alfred ASCII Search
 
+[Download v1.0.1](https://github.com/blainesch/alfred-ascii-search/releases/download/v1.0.1/ASCII.Search.alfredworkflow)
+
 Search for ASCII characters by name or by number.
 
 ![Screenshot](screenshot.png)
